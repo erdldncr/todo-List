@@ -1,0 +1,46 @@
+.todo-app {
+    font-family: sans-serif;
+}
+
+
+button{
+ margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input{
+      padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+ul{
+    width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+li{
+     margin-bottom: 5px;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style-type: none;
+  text-align: center;
+}
+h1{
+    text-align: center;
+}
+
+.addTodo{
+    text-align: center;
+}
