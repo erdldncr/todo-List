@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_TODOS, REQUEST_FAILED, REQUEST_PENDING } from "./types";
+import { ADD_TODO, FETCH_TODOS, REQUEST_FAILED, REQUEST_PENDING } from "./types";
 
 export function fetchTodos() {
   return function(dispatch) {
@@ -17,7 +17,11 @@ export function addTodo(todo) {
   return function(dispatch) {
     dispatch({type:REQUEST_PENDING})
     return axios.post("http://localhost:9091/api/todo",{task:todo,id: new Date().getTime()}).then(({ data }) => {
-      dispatch(setTodos(data));
+      console.log(data);
+      dispatch({
+    type: ADD_TODO,
+    payload: data
+  });
     }).catch((err)=>{
      dispatch({type:REQUEST_FAILED})
       console.error(err);

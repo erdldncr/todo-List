@@ -2,17 +2,25 @@ import React from 'react';
 import { render, screen, fireEvent  } from '@testing-library/react';
 import AddTodo from '../../component/AddTodo';
 import * as actions from '../../actions';
+import { Provider } from 'react-redux';
 
 jest.mock('../../actions', () => ({
   addTodo: jest.fn(),
 }));
+const store = {
+    getState: () => ({}),
+    subscribe: () => {},
+    dispatch: () => {},
+  };
 
 
 describe('AddTodo Component',()=>{
 
 it('should add a todo when the button is clicked', () => {
   render(
-      <AddTodo/>
+     <Provider store={store}>
+        <AddTodo/>
+     </Provider>
   );
 
   const inputElement = screen.getByRole('textbox');
@@ -27,7 +35,9 @@ it('should add a todo when the button is clicked', () => {
 });
 it('should disable add button when input is empty', () => {
   render(
-      <AddTodo/>
+      <Provider store={store}>
+        <AddTodo/>
+     </Provider>
   );
 
   const inputElement = screen.getByRole('textbox');
@@ -37,7 +47,9 @@ it('should disable add button when input is empty', () => {
 
 it('should disable add button when input value is only whitespace', () => {
   render(
-      <AddTodo/>
+      <Provider store={store}>
+        <AddTodo/>
+     </Provider>
   );
 
   const inputElement = screen.getByRole('textbox');
