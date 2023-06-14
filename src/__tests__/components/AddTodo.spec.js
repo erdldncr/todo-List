@@ -42,18 +42,34 @@ it('should disable add button when input is empty', () => {
 
   const inputElement = screen.getByRole('textbox');
   fireEvent.change(inputElement, { target: { value: '' } });
+
   expect(inputElement).toBeDisabled;
 });
 
 it('should disable add button when input value is only whitespace', () => {
   render(
-      <Provider store={store}>
+      <Provider store={{...store,}}>
         <AddTodo/>
      </Provider>
   );
 
   const inputElement = screen.getByRole('textbox');
   fireEvent.change(inputElement, { target: { value: '   ' } });
+  expect(inputElement).toBeDisabled;
+});
+
+
+
+it('should disable add button when input isLoading is true and input has value', () => {
+  const testStore={...store,getState:() => ({isLoading:true})}
+  render(
+      <Provider store={testStore}>
+        <AddTodo/>
+     </Provider>
+  );
+
+  const inputElement = screen.getByRole('textbox');
+  fireEvent.change(inputElement, { target: { value: 'test' } });
   expect(inputElement).toBeDisabled;
 });
 

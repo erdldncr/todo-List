@@ -17,7 +17,6 @@ export function addTodo(todo) {
   return function(dispatch) {
     dispatch({type:REQUEST_PENDING})
     return axios.post("http://localhost:9091/api/todo",{task:todo,id: new Date().getTime()}).then(({ data }) => {
-      console.log(data);
       dispatch({
     type: ADD_TODO,
     payload: data

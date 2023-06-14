@@ -18,7 +18,7 @@ describe('TODO Service', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should be able to add todos from repository', async () => {
+  it('should be able to add todos to repository', async () => {
     const expected = {
       todos: [
         {

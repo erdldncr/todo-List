@@ -13,10 +13,10 @@ class TodoList extends Component {
   render() {
     const {data:{todos},isLoading,isError} = this.props;
     if(isLoading){
-      return <p>Loading....</p>
+      return <h3>Loading....</h3>
     }
     if(isError){
-      return <p>Something is wrong</p>
+      return <h3 className='error'>Something is wrong</h3>
     }
     return (<ul className="todo-list">
       {todos && todos.length
